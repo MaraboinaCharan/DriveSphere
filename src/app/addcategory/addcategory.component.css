@@ -1,0 +1,25 @@
+  .categoryInputContainer {
+    background-image: url('auto-mall-2.png');
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
+    background-size: 220vh;
+    height: 90vh;
+    background-color: #f8f9fa; 
+}
+
+.categoryInput {
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+.categoryInput::placeholder {
+    color: #333; 
+}
+

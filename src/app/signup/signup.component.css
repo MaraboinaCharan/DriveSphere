@@ -1,0 +1,100 @@
+
+  .in {
+    overflow: hidden !important;
+    background-image: url(bg_6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .data {
+    display: flex;
+    gap: 9%;
+  }
+  
+  .cover {
+    height: 100%;
+    background-color: #e7e9e9;
+  }
+  
+  .mat-icon {
+    margin-top: 30%;
+  }
+  
+  .divPass {
+    width: 94%;
+  }
+  
+  .data2 {
+    display: flex;
+    gap: 0%;
+  }
+  
+  .mainn {
+    margin-left: 6%;
+  }
+  
+  .mainnDiv {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    color: #495057;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  
+  .btn {
+    width: 30%;
+  }
+  
+  .signup {
+    margin-right: 54%;
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 5px 5px;
+    width: 20%;
+  }
+  
+  .signin {
+    padding: 5px 5px;
+    border: 0.5px solid black;
+    width: 20%;
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  

@@ -1,0 +1,98 @@
+
+
+
+  .mainn {
+    overflow: hidden !important;
+    background-image: url(bg_5.avif);
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa; 
+  }
+  
+  .data {
+    display: flex;
+    gap: 9%;
+  }
+  
+  .cover {
+    height: 100%;
+    background-color: #e7e9e9;
+  }
+  
+  .mat-icon {
+    margin-top: 30%;
+  }
+  
+  .mat-label {
+    margin-bottom: 15px;
+  }
+  
+  .divPass {
+    width: 94%;
+  }
+  
+  .data2 {
+    display: flex;
+    gap: 0%;
+  }
+  
+  .mainnDiv {
+    width: 360px;
+    height: 350px;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin-right: 620px;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff; 
+  }
+  
+  label {
+    margin-bottom: 5px;
+    color: #495057; 
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545; 
+  }
+  
+  .text-danger {
+    color: #dc3545; 
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .signIn {
+    background-color: #007bff; 
+    color: #ffffff; 
+  }
+  
+  .signUp {
+    background-color: #6c757d; 
+    color: #ffffff; 
+  }
+  

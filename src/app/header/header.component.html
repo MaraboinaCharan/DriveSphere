@@ -1,0 +1,50 @@
+
+
+  <div class="profile">
+    <img src="assets/account_circle_FILL0_wght400_GRAD0_opsz24.png" alt="image" >
+    <span class="name">{{userName}}</span>
+
+    <div class="scrolling-text-container">
+      <span class="shopping-icon"><i class="fas fa-shopping-cart"></i></span>
+      <span class="scrolling-text">Welcome to MC Shopify - Explore Our Latest Deals!- Free Shipping on Orders Over $50,10% Off for New Customers</span>
+    </div>
+
+
+
+    <button (click)="logout()" class="logoutButton">Logout</button>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item " [class.active]="isActive(['/home'])">
+          <a class="nav-link" routerLink="home" (click)="toggle()" routerLinkActive="active-link" [ngClass]="{'active-link': activeLink === 'home'}">Home</a>
+        </li>
+        <li class="nav-item " [class.active]="isActive(['/posts'])">
+          <a class="nav-link" (click)="postsToggle()" routerLinkActive="active-link" [ngClass]="{'active-link': activeLink === 'posts'}">Posts </a>
+        </li>
+        <li class="nav-item"  [class.active]="isActive(['/myposts','/editpost'])" >
+          <a class="nav-link" (click)="myPosts()" routerLinkActive="active-link" [ngClass]="{'active-link': activeLink === 'myPosts'}">My Posts</a>
+        </li>
+        <li class="nav-item" [class.active]="isActive(['/addpost'])">
+          <a class="nav-link" (click)="addPost()" routerLinkActive="active-link" [ngClass]="{'active-link': activeLink === 'addPost'}">Add Post</a>
+        </li>
+        <li class="nav-item dropdown" [class.active]="isActive(['/category/' + selectedCategory])">
+          <a class="nav-link dropdown-toggle" (click)="getAllCategory()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" routerLinkActive="active-link" [ngClass]="{'active-link': activeLink === 'getAllCategory'}">
+             {{selectedCategory}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div *ngFor="let cat of category">
+              <div class="catDiv">
+                <a class="dropdown-item" (click)="categoryByName(cat.categoryName)">{{cat.categoryName}}</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+</nav>
+
