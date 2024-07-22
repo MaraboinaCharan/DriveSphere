@@ -1,0 +1,146 @@
+<div class="main">
+
+  <div class="container-fluid mainn">
+    <form
+      [formGroup]="registrationForm"
+      (ngSubmit)="register()"
+      class="mainnDiv"
+    >
+
+      <div class="formGroup">
+        <label>Title</label>
+        <input
+        [class.is-invalid]="title?.invalid && title?.touched"
+          type="text"
+          formControlName="Title"
+          class="form-control"
+        />
+        <div *ngIf="title?.invalid && title?.touched">
+          <small *ngIf="title?.errors?.['required']" class="smallText">
+            Title is required
+          </small>
+          <small *ngIf="title?.errors?.['minlength']" class="smallText">
+            Title should be atleast 3 characters long
+          </small>
+          <small *ngIf="title?.errors?.['forbiddenName']" class="smallText">
+            {{ title?.errors?.['forbiddenName'].value }} as title not allowed
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Image</label>
+        <input type="file" (change)="uploadPost($event)" formControlName="ProductImage" class="form-control" [class.is-invalid]="img?.invalid && img?.touched"/>
+        <div *ngIf="img?.invalid && img?.touched">
+          <small class="smallText" *ngIf="img?.errors?.['required']">Image is required</small>
+        </div>
+      </div>
+
+
+      <div *ngIf="registrationForm.get('ProductImage')?.value" class="form-group">
+        <label>Selected Image</label>
+        <img [src]="selectedImage" alt="Selected Image" class="selected-image">
+      </div>
+
+
+      <div class="formGroup">
+        <label>Description</label>
+        <input
+          [class.is-invalid]="desc?.invalid && desc?.touched"
+          type="text"
+          formControlName="Description"
+          class="form-control"
+        />
+        <div *ngIf="desc?.invalid && desc?.touched">
+          <small *ngIf="desc?.errors?.['required']" class="smallText">
+            Description is required
+          </small>
+          <small *ngIf="desc?.errors?.['minlength']" class="smallText">
+            Description should be atleast 10 characters long
+          </small>
+        </div>
+      </div>
+
+      <div class="formGroup">
+        <label>Price</label>
+        <input
+          [class.is-invalid]="price?.invalid && price?.touched"
+          type="number"
+          formControlName="Price"
+          class="form-control"
+        />
+        <div *ngIf="price?.invalid && price?.touched">
+          <small *ngIf="price?.errors?.['required']" class="smallText">
+            Price is required
+          </small>
+        </div>
+      </div>
+
+      <div class="formGroup">
+        <label>Status</label>
+        <select
+          [class.is-invalid]="status?.invalid && status?.touched"
+          formControlName="Status"
+          class="form-control"
+        >
+          <option value="">Select Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">InActive</option>
+        </select>
+        <div *ngIf="status?.invalid && status?.touched">
+          <small *ngIf="status?.errors?.['required']" class="smallText">
+            Status is required
+          </small>
+        </div>
+      </div>
+
+      <div class="formGroup">
+        <label>Category</label>
+        <select
+          [class.is-invalid]="category?.invalid && category?.touched"
+          class="form-control"
+          formControlName="Category"
+          (change)="onCategoryChange($event)"
+        >
+          <option [ngValue]="''">Select Category</option>
+          <option *ngFor="let cat of categoryy" [value]="cat.categoryName">
+            {{ cat.categoryName }}
+          </option>
+        </select>
+        <div *ngIf="category?.invalid && category?.touched">
+          <small *ngIf="category?.errors?.['required']" class="smallText">
+            Category is required
+          </small>
+        </div>
+      </div>
+
+      <div class="formGroup">
+        <label>Address</label>
+        <input
+          [class.is-invalid]="address?.invalid && address?.touched"
+          type="text"
+          formControlName="Address"
+          class="form-control"
+        />
+        <div *ngIf="address?.invalid && address?.touched">
+          <small *ngIf="address?.errors?.['required']" class="smallText">
+            Address is required
+          </small>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="button mb-3 signup" type="submit">
+          Submit
+        </button>
+        <button class="button2 mb-3 signup" type="button" (click)="resetForm()">
+          Reset
+        </button>
+      </div>
+        <div class="form-group text-center">
+          <p *ngIf="cond" class="text-success font-weight-bold">Registered Successfully!</p>
+        </div>
+      
+    </form>
+  </div>
+</div>

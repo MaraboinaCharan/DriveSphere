@@ -1,0 +1,83 @@
+
+ <div class="in">
+  <div class="container-fluid mainn">
+    <form [formGroup]="registrationForm" (ngSubmit)="register()" class="mainnDiv">
+      <div class="form-group data">
+        <div>
+          <label>First Name</label>
+          <input [class.is-invalid]="firstName?.invalid && firstName?.touched" type="text" formControlName="firstName" class="form-control" placeholder="First Name">
+          <div *ngIf="firstName?.invalid && firstName?.touched">
+            <small *ngIf="firstName?.errors?.['required']" class="text-danger">First Name is required</small>
+            <small *ngIf="firstName?.errors?.['minlength']" class="text-danger">Should be at least 3 Characters Long</small>
+            <small *ngIf="firstName?.errors?.['forbiddenName']" class="text-danger">{{firstName?.errors?.['forbiddenName'].value}} as First Name not allowed</small>
+          </div>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input [class.is-invalid]="lastName?.invalid && lastName?.touched" type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+          <div *ngIf="lastName?.invalid && lastName?.touched">
+            <small *ngIf="lastName?.errors?.['required']" class="text-danger">Last Name is required</small>
+            <small *ngIf="lastName?.errors?.['minlength']" class="text-danger">Should be at least 3 characters long</small>
+            <small *ngIf="lastName?.errors?.['forbiddenName']" class="text-danger">{{lastName?.errors?.['forbiddenName'].value}} as Last Name not allowed</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group data">
+        <div>
+          <label>Email id</label>
+          <input [class.is-invalid]="validEmail" type="email" formControlName="email" class="form-control" required pattern="@" placeholder="example@gmail.com">
+          <div *ngIf="email?.touched && email?.invalid">
+            <small *ngIf="validEmail" class="text-danger">Email is required</small>
+          </div>
+        </div>
+        <div>
+          <label>Phone No:</label>
+          <input [class.is-invalid]="phoneNumberValid" type="tel" formControlName="phoneNumber" class="form-control" [maxlength]="10" placeholder="000-000-0000">
+          <div *ngIf="phoneNumber?.touched && phoneNumber?.invalid">
+            <small *ngIf="phoneNumberValid" class="text-danger">Phone Number is Invalid</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-label>Password</mat-label>
+        <div class="data2">
+          <div class="divPass">
+            <input matInput [class.is-invalid]="isPasswordInvalid" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="Enter your password" [maxlength]="50">
+            <small *ngIf="isPasswordInvalid && registrationForm.get('password')?.touched" class="invalid-feedback">Weak Password</small>
+          </div>
+          <div class="cover">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-label>Confirm Password</mat-label>
+        <div class="data2">
+          <div class="divPass">
+            <input [class.is-invalid]="registrationForm.errors?.['misMatch']" [type]="showPassword2 ? 'text' : 'password'" formControlName="confirmPassword" class="form-control" placeholder="Confirm your password">
+            <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">Password and Confirm Password didn't match</small>
+          </div>
+          <div class="cover">
+            <mat-icon matSuffix (click)="togglePasswordVisibility2()">{{showPassword2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div formGroupName="address">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" formControlName="city" class="form-control" placeholder="City">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" formControlName="state" class="form-control" placeholder="State">
+        </div>
+      </div>
+      <button [disabled]="!registrationForm.valid && isPasswordInvalid" class="btn btn-primary mb-3 signup" type="submit">Register</button>
+      <button type="button" class="btn btn-primary mb-3 signin" [routerLink]="['/login']">SignIn</button>
+      <div class="form-group text-center">
+        <p *ngIf="cond" class="text-success font-weight-bold">Registered Successfully!</p>
+      </div>
+    </form>
+  </div>
+</div>
+

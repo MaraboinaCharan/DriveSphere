@@ -1,0 +1,20 @@
+       <div class="detailedPostContainer">
+        <button (click)="goBack()" class="button">Go Back</button>
+    
+        <div *ngFor="let post of post" class="postsDiv">
+    
+            <img [src]="'http://172.22.30.171:3000/images/' + post?.FileName" alt="Image" class="postImage">
+            <h5 class="postTitle">{{ post?.Title }}</h5>
+    
+            <details [open]="true">
+                <summary>View Details</summary>
+                <p class="postDescription"><strong>Description: </strong>{{ post?.Description }}</p>
+                <address class="postAddress"><strong>Address: </strong> {{ post?.Address }}</address>
+                <span class="postDate"><strong>Date posted: </strong>{{ post?.date|slice:0:10| date:"shortDate"}}</span>
+                <p class="postPrice"><strong>Price: </strong>{{ post?.Price }}</p>
+    
+            </details>
+    
+        </div>
+    </div>
+    

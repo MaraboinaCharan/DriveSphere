@@ -1,0 +1,120 @@
+
+   body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; 
+    color: #495057;
+}
+
+.name {
+    text-transform: capitalize;
+    margin-right: 45%;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #400082;
+
+}
+
+.logoutButton {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: -10%;
+    position: absolute;
+    right: 12%;
+}
+
+.logoutButton:hover {
+    background-color: #c82333; 
+}
+
+.navbar {
+    background-color: #343a40; 
+}
+
+
+.nav-link:hover {
+    color: #007bff !important; 
+    cursor: pointer;
+}
+.active-link {
+  color: #007bff;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.carLogo {
+    max-width: 100%;
+    height: auto;
+}
+.catDiv:hover{
+  background-color: rgb(119, 227, 24);
+  cursor: pointer;
+}
+
+.scrolling-text-container {
+  /* overflow: hidden;
+  position: relative; */
+
+  width: 300px; /* Adjust width as needed */
+}
+.shopping-icon {
+  color: #ff6347; /* Change the color of the shopping cart icon */
+  margin-left: 10px; /* Adjust spacing between the name and the shopping cart icon */
+}
+
+
+.scrolling-text {
+  position: absolute;
+  white-space: nowrap;
+  /* color: #967A0C; */
+  color: oklab(from purple l a b);
+  /* right: 50px; */
+  animation: scroll-left 8s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    left: 43%; /* Start from right */
+  }
+  100% {
+    left: 12%; /* Move to left */
+  }
+}
+
+@media (max-width: 768px) {
+    .profile {
+      flex-direction: column;
+      text-align: center;
+    }
+    .profile img {
+      margin-bottom: 10px;
+    }
+}

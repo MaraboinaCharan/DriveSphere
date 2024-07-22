@@ -1,0 +1,31 @@
+
+  <div class="container-fluid mainn">
+    <form [formGroup]="loginPage" (ngSubmit)="login()" class="mainnDiv">
+      <div class="form-group">
+        <label>UserName</label>
+        <input [class.is-invalid]="name?.invalid && name?.touched" type="text" formControlName="userName" class="form-control" placeholder="Enter Your Name">
+        <div *ngIf="name?.invalid && name?.touched">
+          <small *ngIf="userName" class="text-danger">Invalid User:UserName is First Name "space" Last Name</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-label class="matLabel">Password</mat-label>
+        <div class="data2">
+          <div class="divPass">
+            <input matInput [class.is-invalid]="pass?.invalid && pass?.touched" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="Enter Your Password">
+            <div *ngIf="pass?.invalid && pass?.touched">
+              <small *ngIf="password" class="text-danger">Incorrect Password</small>
+            </div>
+          </div>
+          <div class="cover">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+              {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mb-3 signIn">SignIn</button> 
+      <button type="button" class="btn btn-secondary mb-3 signUp" [routerLink]="['/signup']">Sign Up</button> 
+    </form>
+  </div>
+  

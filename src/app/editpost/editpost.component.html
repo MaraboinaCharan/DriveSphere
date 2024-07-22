@@ -1,0 +1,80 @@
+
+<div class="container-fluid mainn">
+  <button [routerLink]="['/myposts']" class="back">Go Back</button>
+  <form class="form-control mainn_div" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" formControlName="Title" class="form-control" [class.is-invalid]="title?.invalid && title?.touched"/>
+      <div *ngIf="title?.invalid && title?.touched" class="smallText">
+        <small *ngIf="title?.errors?.['required']" class="smallText">Title is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input type="file" formControlName="FileName" class="form-control" (change)="uploadPost($event)" [class.is-invalid]="img?.invalid && img?.touched" />
+      <div *ngIf="img?.invalid && img?.touched" class="smallText">
+        <small *ngIf="img?.errors?.['required']" class="smallText">Image is required</small>
+      </div>
+    </div>
+    
+    <div *ngIf="postForm.get('FileName')?.touched" class="form-group">
+      <label>Selected Image</label>
+      <img [src]="selectedImage" alt="Selected Image" class="selected-image">
+    </div>
+   
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="Description" class="form-control" [class.is-invalid]="desc?.invalid && desc?.touched"></textarea>
+      <div *ngIf="desc?.invalid && desc?.touched" class="smallText">
+        <small *ngIf="desc?.errors?.['required']" class="smallText">Description is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number" formControlName="Price" class="form-control" [class.is-invalid]="price?.invalid && price?.touched"/>
+      <div *ngIf="price?.invalid && price?.touched" class="smallText">
+        <small *ngIf="price?.errors?.['required']" class="smallText">Price is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <!-- <input type="text" formControlName="Status" class="form-control" /> -->
+      <select
+      formControlName="Status" class="form-control" [class.is-invalid]="status?.invalid && status?.touched"
+    >
+      <option value="">Select Status</option>
+      <option value="active">active</option>
+      <option value="inactive">inactive</option>
+    </select>
+    <div *ngIf="status?.invalid && status?.touched" class="smallText">
+      <small *ngIf="status?.errors?.['required']" class="smallText">Status is required</small>
+    </div>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+   
+      <select
+      formControlName="Category" class="form-control" [class.is-invalid]="category?.invalid && category?.touched"
+      (change)="onCategoryChange($event)"
+    >
+      <option [ngValue]="null">Select Category</option>
+      <option *ngFor="let cat of categoryy" [value]="cat.categoryName">
+        {{ cat.categoryName }}
+      </option>
+    </select>
+    <div *ngIf="category?.invalid && category?.touched" class="smallText">
+      <small *ngIf="category?.errors?.['required']" class="smallText">Category is required</small>
+    </div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" formControlName="Address" class="form-control" [class.is-invalid]="address?.invalid && address?.touched" />
+      <div *ngIf="address?.invalid && address?.touched" class="smallText">
+        <small *ngIf="address?.errors?.['required']" class="smallText">Address is required</small>
+      </div>
+    </div>
+    <button class="btn-secondary mb-3 signup updatePost" type="submit">Update Post</button>
+    <!-- <button class="button" (click)="Reset()">Reset</button> -->
+  </form>
+</div>

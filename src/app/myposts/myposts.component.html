@@ -1,0 +1,24 @@
+   <div class="outerDiv">
+    <div *ngIf="posts && posts.userItems">
+      <div class="outerDiv">
+        <div *ngFor="let post of posts.userItems">
+          <div class="postsDiv">
+            <img [src]="'http://172.22.30.171:3000/images/'+post.FileName" alt="Image" height="90px" width="90px" class="image">
+            <br><br>
+            <h5>{{post.Title}}</h5> 
+            <address class="desc"><strong> Address: </strong>{{post.Address}} </address> 
+            <p class="desc"> <strong>Desc: </strong>{{post.Description}} </p>  
+            <p class="desc"><strong>Date posted : </strong>{{post.date|slice:0:10}} </p>
+            <p><strong>Price : </strong>{{post.Price}}</p>
+            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZuKMLcln1C5O_Zff5l55VB3kR80uqWRtB6w&usqp=CAU" alt="eye symbol" height="30px" width="30px">
+            <span>{{post.Views}}</span>&nbsp;&nbsp;
+            <button (click)="editPost(post.PostId)" class="edit">Edit Post</button>
+            <button (click)="eventListeners(post.PostId)" class="view">View Details</button>
+            <button (click)="deletePost(post.PostId)" class="delete">Delete</button>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
